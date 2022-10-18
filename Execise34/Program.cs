@@ -27,24 +27,27 @@ void PrintArray(int[] array)
 
 int CountEvenNumbers(int[] array)
 {
-    int[] result = array;
-    int res = 0;
-    
+    int[] remainderDivision10 = array;
+    int result = 0;
+
     for (int i = 0; i < array.Length; i++)
     {
-        result[i] = result[i] % 10;
-    }
-    
-    for (int i = 0; i < result.Length; i++) 
-    {
-        if (result[i] == 0 || result[i] == 2 || result[i] == 4 || result[i] == 6 || result[i] == 8) res++;   
+        remainderDivision10[i] = remainderDivision10[i] % 10;
     }
 
-return res;
+    for (int i = 0; i < remainderDivision10.Length; i++)
+    {
+        if (remainderDivision10[i] == 0 || remainderDivision10[i] == 2 ||
+            remainderDivision10[i] == 4 || remainderDivision10[i] == 6 ||
+            remainderDivision10[i] == 8)
+            result++;
+    }
+
+    return result;
 }
 
 
 int[] arr = CreateArrayRndInt(10, 100, 1000);
-PrintArray (arr);
-int countEvenNumbers = CountEvenNumbers (arr);
-Console.WriteLine ($"Количество чётных чисел в данном массиве равно {countEvenNumbers}");
+PrintArray(arr);
+int countEvenNumbers = CountEvenNumbers(arr);
+Console.WriteLine($"Количество чётных чисел в данном массиве равно {countEvenNumbers}");
